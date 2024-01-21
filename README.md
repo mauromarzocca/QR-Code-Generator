@@ -59,7 +59,7 @@ python QRcode generator.py
 
 ## Author
 
-Mauro Marzocca: GitHub
+Mauro Marzocca: <a href="https://github.com/mauromarzocca" target="_blank"> GitHub </a>
 
 ## License
 
