@@ -63,4 +63,4 @@ Mauro Marzocca: <a href="https://github.com/mauromarzocca" target="_blank"> GitH
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the <a href="./LICENSE" target="_blank"> LICENSE </a> file for details.
