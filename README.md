@@ -10,6 +10,9 @@ A Python Script which can convert some resources into QRCode
   - [Dependencies](#dependencies)
   - [Usage](#usage)
   - [File Structure](#file-structure)
+  - [Example](#example)
+  - [Author](#author)
+  - [License](#license)
 
 ## Introduction
 
@@ -43,9 +46,10 @@ pip install qrcode pillow
 
 ## File Structure
 
-The generated QR codes for URLs are saved in the ./URL directory.
-The generated QR codes for WiFi networks are saved in the ./WiFi directory.
-Example
+- The generated QR codes for URLs are saved in the ./URL directory.
+- The generated QR codes for WiFi networks are saved in the ./WiFi directory.
+
+## Example
 
 Below is an example of using the QRCode Generator:
 
@@ -53,9 +57,10 @@ Below is an example of using the QRCode Generator:
 python QRcode generator.py
 ```
 
-Author
+## Author
 
 Mauro Marzocca: GitHub
-License
+
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
