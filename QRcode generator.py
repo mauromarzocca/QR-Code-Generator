@@ -34,6 +34,14 @@ def verifica_e_nome_file(directory, nome_file):
             print("Scelta non valida. Continua con il nome esistente.")
     return percorso_immagine
 
+def apri_qr_code(img):
+    apri_immagine = input("Vuoi aprire il QR Code appena generato? (s/n): ").lower()
+    if apri_immagine == 's':
+        try:
+            img.show()
+        except Exception as e:
+            print(f"Impossibile aprire l'immagine: {e}")
+
 # Intestazione
 print("QRCode Generator\nUn programma di Mauro Marzocca\n")
 
@@ -71,9 +79,6 @@ while True:
         img.save(percorso_immagine)
 
         print(f"L'immagine è stata salvata in: {percorso_immagine}")
+        apri_qr_code(img)
     else:
-        # Apri e visualizza l'immagine direttamente
-        try:
-            img.show()
-        except Exception as e:
-            print(f"Impossibile aprire l'immagine: {e}")
+        apri_qr_code(img)
