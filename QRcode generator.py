@@ -26,18 +26,22 @@ def apri_qr_code(img):
         print(f"Impossibile aprire l'immagine: {e}")
 
 # Intestazione
-print("QRCode Generator\nUn programma di Mauro Marzocca\n")
-
 while True:
     # Chiedi all'utente di selezionare l'opzione desiderata
+    print("\nQRCode Generator\nUn programma di Mauro Marzocca\n")
     scelta = input("Seleziona un'opzione (1 per URL / 2 per WIFI / 0 per uscire): ")
 
     if scelta == '0':
-        print("Uscita dal programma.")
+        print("\nGrazie di aver usato il mio programma!\n\t - Mauro Marzocca - \n")
         break
     elif scelta == '1':
         # Chiedi all'utente se vuole salvare l'immagine
-        salva_immagine = input("Vuoi salvare l'immagine del codice QR URL? (s/n): ").lower()
+        while True:
+            salva_immagine = input("Vuoi salvare l'immagine del codice QR URL? (s/n): ").lower()
+            if salva_immagine in ('s', 'n'):
+                break
+            else:
+                print("Inserire una risposta valida (s/n).")
 
         if salva_immagine == 's':
             img, link = genera_qr_url()
@@ -45,7 +49,7 @@ while True:
             nome_file = input("Inserisci il nome per l'immagine del codice QR URL: ")
 
             # Verifica se la directory esiste, altrimenti creala
-            directory = f'./URL/{nome_file}'
+            directory = f'./URL'
             if not os.path.exists(directory):
                 os.makedirs(directory)
 
@@ -73,11 +77,16 @@ while True:
     elif scelta == '2':
         img, ssid = genera_qr_wifi()
         # Chiedi all'utente se vuole salvare l'immagine
-        salva_immagine = input("Vuoi salvare l'immagine del codice QR WiFi? (s/n): ").lower()
+        while True:
+            salva_immagine = input("Vuoi salvare l'immagine del codice QR WiFi? (s/n): ").lower()
+            if salva_immagine in ('s', 'n'):
+                break
+            else:
+                print("Inserire una risposta valida (s/n).")
 
         if salva_immagine == 's':
             # Verifica se la directory esiste, altrimenti creala
-            directory = f'./WiFi/{ssid}'
+            directory = f'./WiFi'
             if not os.path.exists(directory):
                 os.makedirs(directory)
 
