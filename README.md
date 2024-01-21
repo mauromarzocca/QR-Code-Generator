@@ -1,6 +1,15 @@
 # QR Code Generator
 
- A Python Script which can convert some resources into QRCode
+A Python Script which can convert some resources into QRCode
+
+## Index
+
+- [QR Code Generator](#qr-code-generator)
+  - [Index](#index)
+  - [Introduction](#introduction)
+  - [Dependencies](#dependencies)
+  - [Usage](#usage)
+  - [File Structure](#file-structure)
 
 ## Introduction
 
