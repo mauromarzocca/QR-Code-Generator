@@ -59,8 +59,8 @@ python QRcode generator.py
 
 ## Author
 
-Mauro Marzocca: <a href="https://github.com/mauromarzocca" target="_blank"> GitHub </a>
+- **Mauro Marzocca**: [GitHub](https://github.com/mauromarzocca)
 
 ## License
 
-This project is licensed under the MIT License - see the <a href="./LICENSE" target="_blank"> LICENSE </a> file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
