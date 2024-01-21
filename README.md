@@ -30,16 +30,16 @@ pip install qrcode pillow
 
 ## Usage
 
-Run the program and follow the on-screen instructions.
-Select an option (1 for URL, 2 for WiFi, 0 to exit).
-For URL:
-Enter the link for which you want to generate the QR code.
-Choose whether to save the QR code image or not.
-If saving, provide a name for the image or choose to use the default name.
-For WiFi:
-Enter the WiFi SSID and password.
-Choose whether to save the QR code image or not.
-If saving, provide a name for the image or choose to use the default name.
+1. Run the program and follow the on-screen instructions.
+2. Select an option (1 for URL, 2 for WiFi, 0 to exit).
+3. For URL:
+   - Enter the link for which you want to generate the QR code.
+   - Choose whether to save the QR code image or not.
+   - If saving, provide a name for the image or choose to use the default name.
+4. For WiFi:
+   - Enter the WiFi SSID and password.
+   - Choose whether to save the QR code image or not.
+   - If saving, provide a name for the image or choose to use the default name.
 
 ## File Structure
 
