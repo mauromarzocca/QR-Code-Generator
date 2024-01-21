@@ -50,8 +50,9 @@ Example
 Below is an example of using the QRCode Generator:
 
 ```bash
-python qrcode_generator.py
+python QRcode generator.py
 ```
+
 Author
 
 Mauro Marzocca: GitHub
