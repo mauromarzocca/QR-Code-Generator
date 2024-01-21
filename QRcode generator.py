@@ -17,33 +17,38 @@ def genera_qr_wifi():
     
     # Genera il codice QR per la connessione WiFi
     img = qrcode.make(wifi_data)
-    return img
+    return img, ssid
 
 # Chiedi all'utente di selezionare l'opzione desiderata
-scelta = input("Seleziona un'opzione (URL/WIFI): ").upper()
+scelta = input("Seleziona un'opzione (1 per URL / 2 per WIFI): ")
 
-if scelta == 'URL':
+if scelta == '1':
     img = genera_qr_url()
-elif scelta == 'WIFI':
-    img = genera_qr_wifi()
+    directory = './URL'
+elif scelta == '2':
+    img, ssid = genera_qr_wifi()
+    directory = './WiFi'
 else:
     print("Opzione non valida. Esce dal programma.")
     exit()
+
+# Verifica se la directory esiste, altrimenti creala
+if not os.path.exists(directory):
+    os.makedirs(directory)
 
 # Chiedi all'utente se vuole salvare l'immagine
 salva_immagine = input("Vuoi salvare l'immagine del codice QR? (s/n): ").lower()
 
 if salva_immagine == 's':
-    # Verifica se la directory QRCode esiste, altrimenti creala
-    directory = './QRCode'
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-    # Chiedi all'utente di inserire un nome per l'immagine
-    nome_file = input("Inserisci il nome per l'immagine del codice QR: ")
+    # Se è un codice QR WiFi, salva l'immagine con il nome del SSID
+    if scelta == '2':
+        percorso_immagine = os.path.join(directory, f'{ssid}.png')
+    else:
+        # Altrimenti, chiedi all'utente di inserire un nome per l'immagine
+        nome_file = input("Inserisci il nome per l'immagine del codice QR: ")
+        percorso_immagine = os.path.join(directory, f'{nome_file}.png')
 
     # Salva l'immagine nella directory con il nome scelto dall'utente
-    percorso_immagine = os.path.join(directory, f'{nome_file}.png')
     img.save(percorso_immagine)
 
     print(f"L'immagine è stata salvata in: {percorso_immagine}")
