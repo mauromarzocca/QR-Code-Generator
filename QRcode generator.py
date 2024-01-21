@@ -26,6 +26,8 @@ def verifica_e_nome_file(directory, nome_file):
         risposta = input(f"Il file {nome_file}.png esiste già. Vuoi cambiare il nome? (s/n): ").lower()
         if risposta == 's':
             nome_file = input("Inserisci il nuovo nome per l'immagine del codice QR: ")
+            # Sostituisci i caratteri non validi con il carattere di sottolineatura
+            nome_file = nome_file.replace("/", "_").replace(":", "_").replace(".", "_").replace(" ", "_")
             percorso_immagine = os.path.join(directory, f'{nome_file}.png')
         elif risposta == 'n':
             percorso_immagine = os.path.join(directory, f'{nome_file}({count}).png')
@@ -47,7 +49,8 @@ while True:
     elif scelta == '1':
         img, link = genera_qr_url()
         directory = './URL'
-        nome_file = link  # Usa il link come nome del file per gli URL
+        # Sostituisci i caratteri non validi con il carattere di sottolineatura
+        nome_file = link.replace("/", "_").replace(":", "_").replace(".", "_").replace(" ", "_")
     elif scelta == '2':
         img, ssid = genera_qr_wifi()
         directory = './WiFi'
