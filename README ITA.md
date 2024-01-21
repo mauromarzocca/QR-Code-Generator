@@ -1,66 +1,66 @@
-# QR Code Generator
+# Generatore di Codici QR
 
-A Python Script which can convert some resources into QRCode
+Uno script Python in grado di convertire risorse in codici QR
 
-## Index
+## Indice
 
-- [QR Code Generator](#qr-code-generator)
-  - [Index](#index)
-  - [Introduction](#introduction)
-  - [Dependencies](#dependencies)
-  - [Usage](#usage)
-  - [File Structure](#file-structure)
-  - [Example](#example)
-  - [Author](#author)
-  - [License](#license)
+- [Generatore di Codici QR](#generatore-di-codici-qr)
+  - [Indice](#indice)
+  - [Introduzione](#introduzione)
+  - [Dipendenze](#dipendenze)
+  - [Utilizzo](#utilizzo)
+  - [Struttura del File](#struttura-del-file)
+  - [Esempio](#esempio)
+  - [Autore](#autore)
+  - [Licenza](#licenza)
 
-## Introduction
+## Introduzione
 
-This QRCode Generator is a simple Python program developed by Mauro Marzocca. It allows users to generate QR codes for URLs and WiFi networks. The program utilizes the `qrcode` library for QR code generation and the `PIL` (Pillow) library for image processing.
+Questo Generatore di Codici QR è un semplice programma Python sviluppato da Mauro Marzocca. Consente agli utenti di generare codici QR per URL e reti WiFi. Il programma utilizza la libreria `qrcode` per la generazione di codici QR e la libreria `PIL` (Pillow) per l'elaborazione delle immagini.
 
-## Dependencies
+## Dipendenze
 
-The following dependencies are required to run the QRCode Generator:
+Le seguenti dipendenze sono necessarie per eseguire il Generatore di Codici QR:
 
-- `qrcode`: A Python library to generate QR codes.
-- `PIL` (Pillow): A Python Imaging Library used for opening, manipulating, and saving various image file formats.
+- `qrcode`: Una libreria Python per generare codici QR.
+- `PIL` (Pillow): Una libreria di immagini Python utilizzata per l'apertura, la manipolazione e il salvataggio di vari formati di file immagine.
 
-You can install these dependencies using the following command:
+È possibile installare queste dipendenze utilizzando il seguente comando:
 
 ```bash
 pip install qrcode pillow
 ```
 
-## Usage
+## Utilizzo
 
-1. Run the program and follow the on-screen instructions.
-2. Select an option (1 for URL, 2 for WiFi, 0 to exit).
-3. For URL:
-   - Enter the link for which you want to generate the QR code.
-   - Choose whether to save the QR code image or not.
-   - If saving, provide a name for the image or choose to use the default name.
-4. For WiFi:
-   - Enter the WiFi SSID and password.
-   - Choose whether to save the QR code image or not.
-   - If saving, provide a name for the image or choose to use the default name.
+1. Esegui il programma e segui le istruzioni visualizzate.
+2. Seleziona un'opzione (1 per URL, 2 per WiFi, 0 per uscire).
+3. Per URL:
+   - Inserisci il link per il quale desideri generare il codice QR.
+   - Scegli se salvare l'immagine del codice QR o meno.
+   - Se si salva, fornisci un nome per l'immagine o scegli di utilizzare il nome predefinito.
+4. Per WiFi:
+   - Inserisci il nome SSID e la password del WiFi.
+   - Scegli se salvare l'immagine del codice QR o meno.
+   - Se si salva, fornisci un nome per l'immagine o scegli di utilizzare il nome predefinito.
 
-## File Structure
+## Struttura del File
 
-- The generated QR codes for URLs are saved in the ./URL directory.
-- The generated QR codes for WiFi networks are saved in the ./WiFi directory.
+- I codici QR generati per gli URL vengono salvati nella directory `./URL`.
+- I codici QR generati per le reti WiFi vengono salvati nella directory `./WiFi`.
 
-## Example
+## Esempio
 
-Below is an example of using the QRCode Generator:
+Di seguito è riportato un esempio di utilizzo del Generatore di Codici QR:
 
 ```bash
-python QRcode generator.py
+python QRcode generator_IT.py
 ```
 
-## Author
+## Autore
 
 - **Mauro Marzocca**: [GitHub](https://github.com/mauromarzocca)
 
-## License
+## Licenza
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Questo progetto è distribuito con la Licenza MIT - consultare il file [LICENSE](LICENSE) per ulteriori dettagli.
