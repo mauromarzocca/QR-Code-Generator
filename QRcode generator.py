@@ -19,28 +19,11 @@ def genera_qr_wifi():
     img = qrcode.make(wifi_data)
     return img, ssid
 
-def verifica_e_nome_file(directory, nome_file):
-    percorso_immagine = os.path.join(directory, f'{nome_file}.png')
-    count = 2
-    while os.path.exists(percorso_immagine):
-        risposta = input(f"Il file {nome_file}.png esiste già. Vuoi cambiare il nome? (s/n): ").lower()
-        if risposta == 's':
-            nome_file = input("Inserisci il nuovo nome per l'immagine del codice QR: ")
-            percorso_immagine = os.path.join(directory, f'{nome_file}.png')
-        elif risposta == 'n':
-            percorso_immagine = os.path.join(directory, f'{nome_file}({count}).png')
-            count += 1
-        else:
-            print("Scelta non valida. Continua con il nome esistente.")
-    return percorso_immagine
-
 def apri_qr_code(img):
-    apri_immagine = input("Vuoi aprire il QR Code appena generato? (s/n): ").lower()
-    if apri_immagine == 's':
-        try:
-            img.show()
-        except Exception as e:
-            print(f"Impossibile aprire l'immagine: {e}")
+    try:
+        img.show()
+    except Exception as e:
+        print(f"Impossibile aprire l'immagine: {e}")
 
 # Intestazione
 print("QRCode Generator\nUn programma di Mauro Marzocca\n")
@@ -53,32 +36,71 @@ while True:
         print("Uscita dal programma.")
         break
     elif scelta == '1':
-        img, link = genera_qr_url()
-        directory = './URL'
-        # Chiedi all'utente come chiamare l'immagine per gli URL
-        nome_file = input("Inserisci il nome per l'immagine del codice QR URL: ")
+        # Chiedi all'utente se vuole salvare l'immagine
+        salva_immagine = input("Vuoi salvare l'immagine del codice QR URL? (s/n): ").lower()
+
+        if salva_immagine == 's':
+            img, link = genera_qr_url()
+            # Chiedi all'utente come chiamare l'immagine per gli URL
+            nome_file = input("Inserisci il nome per l'immagine del codice QR URL: ")
+
+            # Verifica se la directory esiste, altrimenti creala
+            directory = f'./URL/{nome_file}'
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+
+            percorso_immagine = os.path.join(directory, f'{nome_file}.png')
+            count = 2
+            while os.path.exists(percorso_immagine):
+                risposta = input(f"Il file {nome_file}.png esiste già. Vuoi cambiare il nome? (s/n): ").lower()
+                if risposta == 's':
+                    nome_file = input("Inserisci il nuovo nome per l'immagine del codice QR: ")
+                    percorso_immagine = os.path.join(directory, f'{nome_file}.png')
+                elif risposta == 'n':
+                    percorso_immagine = os.path.join(directory, f'{nome_file}({count}).png')
+                    count += 1
+                else:
+                    print("Scelta non valida. Continua con il nome esistente.")
+
+            # Salva l'immagine nella directory con il nome scelto dall'utente
+            img.save(percorso_immagine)
+
+            print(f"L'immagine è stata salvata in: {percorso_immagine}")
+        else:
+            img, link = genera_qr_url()
+            apri_qr_code(img)
+
     elif scelta == '2':
         img, ssid = genera_qr_wifi()
-        directory = './WiFi'
-        nome_file = ssid
+        # Chiedi all'utente se vuole salvare l'immagine
+        salva_immagine = input("Vuoi salvare l'immagine del codice QR WiFi? (s/n): ").lower()
+
+        if salva_immagine == 's':
+            # Verifica se la directory esiste, altrimenti creala
+            directory = f'./WiFi/{ssid}'
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+
+            percorso_immagine = os.path.join(directory, f'{ssid}.png')
+            count = 2
+            while os.path.exists(percorso_immagine):
+                risposta = input(f"Il file {ssid}.png esiste già. Vuoi cambiare il nome? (s/n): ").lower()
+                if risposta == 's':
+                    ssid = input("Inserisci il nuovo nome per l'immagine del codice QR: ")
+                    percorso_immagine = os.path.join(directory, f'{ssid}.png')
+                elif risposta == 'n':
+                    percorso_immagine = os.path.join(directory, f'{ssid}({count}).png')
+                    count += 1
+                else:
+                    print("Scelta non valida. Continua con il nome esistente.")
+
+            # Salva l'immagine nella directory con il nome scelto dall'utente
+            img.save(percorso_immagine)
+
+            print(f"L'immagine è stata salvata in: {percorso_immagine}")
+        else:
+            apri_qr_code(img)
+
     else:
         print("Valore non valido. Devi selezionare 1 per URL, 2 per WIFI o 0 per uscire.")
         continue
-
-    # Verifica se la directory esiste, altrimenti creala
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-    # Chiedi all'utente se vuole salvare l'immagine
-    salva_immagine = input("Vuoi salvare l'immagine del codice QR? (s/n): ").lower()
-
-    if salva_immagine == 's':
-        percorso_immagine = verifica_e_nome_file(directory, nome_file)
-
-        # Salva l'immagine nella directory con il nome scelto dall'utente
-        img.save(percorso_immagine)
-
-        print(f"L'immagine è stata salvata in: {percorso_immagine}")
-        apri_qr_code(img)
-    else:
-        apri_qr_code(img)
